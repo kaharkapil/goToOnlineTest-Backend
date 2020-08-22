@@ -24,4 +24,6 @@ module.exports.setRouter=(app)=>{
     app.post(`${baseUrl}/:testId/addUser`,testController.addAttemptedUsers)
 
     app.post(`${baseUrl}/addPerformance`,testController.addPerformance)
+
+    app.get(`${baseUrl}/result/:email/:testId`,testController.getPerformance)
 }

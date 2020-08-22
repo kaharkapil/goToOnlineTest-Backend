@@ -159,6 +159,24 @@ let addPerformance=(req,res)=>{
 
 }
 
+let getPerformance=(req,res)=>{
+    PerformanceModel.findOne({'userEmail':req.params.email ,'testId':req.params.testId})
+    .select('-__v  -_id __proto__')
+    .lean()
+    .exec((err,result)=>{
+        if(err){
+            let apiResponse=response.generate(true,"Failed to load Performance of User ",500,null);
+            res.send(apiResponse);
+        }else if(check.isEmpty(result)){
+            let apiResponse=response.generate(true,"No Performance Found",404,null);
+            res.send(apiResponse);
+        }else{
+            let apiResponse=response.generate(false,"Performance found",200,result);
+            res.send(apiResponse);
+        }
+    })
+}
+
 
 
 module.exports={
@@ -169,4 +187,5 @@ module.exports={
     getSingleTestInformation:getSingleTestInformation,
     addAttemptedUsers:addAttemptedUsers,
     addPerformance:addPerformance,
+    getPerformance:getPerformance,
 }
