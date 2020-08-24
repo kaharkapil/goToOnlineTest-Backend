@@ -1,7 +1,7 @@
 const appConfig={};
 
 appConfig.port=3000;
-appConfig.allowedCorsOrigin="*";
+appConfig.allowedCorsOrigin="http://gotoonlinetest.tk";
 appConfig.env="dev";
 appConfig.db={
     uri: 'mongodb://localhost:27017/testDatabase'

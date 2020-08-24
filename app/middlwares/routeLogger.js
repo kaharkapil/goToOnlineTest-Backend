@@ -21,7 +21,7 @@ let requestIpLogger=(req,res,next)=>{
         console.log("Inside requestLogger / else");
         // enable or disable CORS here
         res.header("Access-Control-Allow-Origin",appConfig.allowedCorsOrigin);
-        res.header("Access-Control-Allow-Methods","GET,POST,DELETE,OPTIONS");
+        res.header("Access-Control-Allow-Methods","GET,POST,DELETE,OPTIONS,PUT");
         res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type,Accept");
 
         console.log(res.header);

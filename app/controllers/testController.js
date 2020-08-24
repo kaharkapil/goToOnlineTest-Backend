@@ -52,7 +52,7 @@ let getAllTestFunction=(req,res)=>{
                 res.send(apiResponse);
             }else if(check.isEmpty(result)){
                 let apiResponse=response.generate(true,"No test Details Found",404,null);
-                reject(apiResponse);
+                res.send(apiResponse);
             }else{
                 let apiResponse=response.generate(false,"All test details found",200,result);
                 res.send(apiResponse);
